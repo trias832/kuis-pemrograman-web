@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylekuis.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mb-3">
+                 <h1>PROGRAM MENCARI NILAI</h1>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-4 mt-3 mb-3">
+                <form>
+                    <div class="mb-3 mt-3">
+                        <input class="form-control mb-3" id="nilaiTugas" type="text" placeholder="Masukkan Nilai Tugas ">
+                        <input class="form-control mb-3" id="nilaiUAS" type="text" placeholder="Masukkan Nilai UAS">
+                        <input class="form-control mb-3" id="nilaiUTS" type="text" placeholder="Masukkan Nilai UTS">
+                        <button type="button" class="btnhitung btn-primary" style="width: 100%;">Hitung</button>
+                    </div>
+                    
+                  </form>
+
+            </div>
+        </div>
+      </div>
+
+      <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mt-3 mb-3 text-center">
+                    <div class="kotakangka p-5">
+                        
+                             <h3>NILAI ANGKA</h3>
+                             <p class="nilaiangka"></p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3 mb-3 text-center">
+                    <div class="kotakhuruf p-5">
+                        
+                            <h3>NILAI HURUF</h3>
+                            <p class="nilaihuruf"></p>
+                    </div>
+                
+                </div>
+            </div>
+         </div>
+    </div>
+    
+    <script>
+        const btnhitung = document.querySelector('.btnhitung');
+        btnhitung.addEventListener('click', function(){
+            const nilaitugas=document.querySelector('#nilaiTugas').value;
+            const nilaiuas=document.querySelector('#nilaiUAS').value;
+            const nilaiuts=document.querySelector('#nilaiUTS').value;
+
+            const nilai=()=>{
+                const nilaiangka = document.querySelector('.nilaiangka');
+                const nkhir=(nilaitugas*0.3)+(nilaiuas*0.4)+(nilaiuts*0.3);
+
+                const nilaihuruf=document.querySelector('.nilaihuruf');
+                let nhuruf;
+                if(nkhir>80 && nkhir<=100){
+                    nhuruf='A';
+                }else if(nkhir>70){
+                    nhuruf='B'
+                }else if(nkhir>60){
+                    nhuruf='C';
+                }else if(nkhir>50){
+                    nhuruf='D';
+                }else{
+                    nhuruf='E';
+                }
+                nilaiangka.innerHTML=nkhir;
+                nilaihuruf.innerHTML=nhuruf;
+
+
+               
+            }
+             nilai();
+
+        }) 
+    </script>
+</body>
+</html>
